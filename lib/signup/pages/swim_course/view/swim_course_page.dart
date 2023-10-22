@@ -19,9 +19,7 @@ class SwimCoursePage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12.0),
       child: BlocProvider(
-        create: (context) => SwimCourseBloc(
-          userRepository: context.read<UserRepository>(),
-        ),
+        create: (context) => SwimCourseBloc(SwimCourseService()),
         child: const SwimCourseForm(),
       ),
     );

@@ -74,7 +74,7 @@ class SwimCourse {
       this.courseHasFixedDates,
       this.courseRange,
       this.courseDuration,
-  );
+      );
 
   Map<String, dynamic> toJson() {
     return {
@@ -87,6 +87,26 @@ class SwimCourse {
       'courseDuration': courseDuration,
       'isCourseVisible': isCourseVisible
     };
+  }
+
+  // Hier ist die fromJson Methode
+  static SwimCourse fromJson(Map<String, dynamic> json) {
+    try {
+      return SwimCourse(
+        json['KursID'] as int,
+        json['Name'] as String,
+        json['Preis'] as String,  // Überprüfen Sie diesen Datentyp und seine Verarbeitung
+        json['Beschreibung'] as String?,
+        json['HatFixtermine'] as int,
+        json['Altersgruppe'] as String,
+        json['KursDauer'] as String, // Auch hier, überprüfen Sie den Datentyp
+        // 'isCourseVisible' ist in den bereitgestellten Daten nicht enthalten, daher setzen wir es optional
+      )
+        ..isCourseVisible = json['isCourseVisible'] as bool? ?? false;
+    } catch (e) {
+      print('Error during conversion: $e');
+      throw e;
+    }
   }
 }
 
@@ -136,9 +156,9 @@ class SwimPools {
   final String address;
   final String phoneNumber;
   final List<OpenTime> openingTime;
-  bool isSelected = false;
+  final bool isSelected;
 
-  SwimPools(this.schwimmbadID, this.name, this.address, this.phoneNumber, this.openingTime);
+  SwimPools(this.schwimmbadID, this.name, this.address, this.phoneNumber, this.openingTime, this.isSelected);
 
   Map<String, dynamic> toJson() {
     return {

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:im_stepper/stepper.dart';
+import 'package:wassermenschen/signup/pages/swim_pool/view/swim_pool_page.dart';
 
 import '../cubit/signup_cubit.dart';
 import '../pages/kind_personal_info/kind_personal_info.dart';
@@ -93,6 +94,9 @@ class SignupStepper extends StatelessWidget {
 
       case 1:
         return const SwimCoursePage();
+
+      case 2:
+        return const SwimPoolPage();
 
       default:
         return Container();

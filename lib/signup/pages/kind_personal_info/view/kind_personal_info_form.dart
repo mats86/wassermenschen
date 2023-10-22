@@ -18,7 +18,6 @@ class _KindPersonalInfoForm extends State<KindPersonalInfoForm> {
   
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
   

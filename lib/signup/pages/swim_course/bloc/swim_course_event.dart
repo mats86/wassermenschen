@@ -15,4 +15,16 @@ class SwimCourseChanged extends SwimCourseEvent {
   List<Object> get props => [swimCourse];
 }
 
+class SwimSeasonChanged extends SwimCourseEvent {
+  final String swimSeason;
+  const SwimSeasonChanged(this.swimSeason);
+
+  @override
+  List<Object> get props => [swimSeason];
+}
+
+class LoadSwimSeasonOptions extends SwimCourseEvent {}
+
+class LoadSwimCourseOptions extends SwimCourseEvent {}
+
 class FormSubmitted extends SwimCourseEvent {}
